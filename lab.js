@@ -538,4 +538,6 @@ boat1.performMaintenance ()
 boat1.checkSeaworthiness ()
 console.log(boat1)
 
-boat1.move(5).checkSeaworthiness().console.log(boat1)
+
+// Is there a way to make this a chained set something like the below?
+// boat1.move(5).checkSeaworthiness().console.log(boat1)

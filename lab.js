@@ -537,3 +537,5 @@ boat1.performMaintenance ()
 
 boat1.checkSeaworthiness ()
 console.log(boat1)
+
+boat1.move(5).checkSeaworthiness().console.log(boat1)

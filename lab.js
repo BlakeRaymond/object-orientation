@@ -351,7 +351,8 @@ const colors = {
 
 //Code Here 
 
-
+const colorsCopy = {...colors}
+console.log(colorsCopy)
 
 /*
  Now use the spread operator to combine the following 2 objects into one. 
@@ -379,9 +380,10 @@ const shippingInfo = {
 
 //Code Here
 
+let helensInfo = {...contactInfo, ...shippingInfo}
+console.log(helensInfo)
 
 //Print helensInfo to see what it looks like, there should be no repeating properties.
-
 
 //////////////////////////// PROBLEM 16 ////////////////////////////
 
@@ -397,12 +399,34 @@ const shippingInfo = {
 
 //Code Here 
 
+class Vehicle {
+  constructor (type, capacity, color, mileage) {
+    this.type = type
+    this.capacity = capacity
+    this.color = color
+    this.mileage = mileage
+  }
+  move (miles) {
+    this.mileage = this.mileage + miles
+    console.log(`The ${this.type} just drove ${miles} miles and now has ${this.mileage} total miles.`)
+  }
+}
+
 
 /*
-  Create a vehicle using your new class and save it to a variable called myFirstVehicle
+Create a vehicle using your new class and save it to a variable called myFirstVehicle
 */
 
 //Code Here
+
+let vehicle1 = new Vehicle ("SUV", 5, 'black', 678)
+console.log(vehicle1)
+
+vehicle1.move(9)
+console.log(vehicle1)
+
+vehicle1.move(15)
+console.log(vehicle1)
 
 
 /* 
@@ -415,11 +439,25 @@ const shippingInfo = {
 
 //Code Here
 
+class Motorcycle extends Vehicle {
+  constructor (type, capacity, color, mileage, make, isCool) {
+    super(type, capacity, color, mileage)
+    this.make = make
+    this.isCool = isCool
+  }
+}
+
 /*
   Create a Motorcycle using your new class and save it to a variable called myFirstMotorcycle
 */
 
 //Code Here 
+
+let motorcycle1 = new Motorcycle("Cruiser", 2, 'red', 800, "Honda", "VROOM!!!")
+console.log(motorcycle1)
+
+motorcycle1.move(24)
+console.log(motorcycle1)
 
 /*
   Call the move function on myFirstMotorcycle (don't forget the parameter)
@@ -443,6 +481,24 @@ const shippingInfo = {
 
 //Code Here
 
+class Boat extends Vehicle {
+  constructor (type, capacity, color, mileage, name, typeB, isSeaworthy) {
+    super(type, capacity, color, mileage)
+    this.name = name
+    this.typeB = typeB
+    this.isSeaworthy = isSeaworthy
+  }
+  checkSeaworthiness () {
+    if (this.isSeaworthy === true) {
+      console.log(`The ${this.color} ${this.type} ${this.name} is seaworthy!`)
+    } else {
+      console.log(`You need to get your ${this.type} in shape!`)
+    }
+  }
+  performMaintenance () {
+    this.isSeaworthy = true
+  }
+}
 
 /*
   Create a new boat using your class. You can choose whatever values you like for all the 
@@ -451,11 +507,18 @@ const shippingInfo = {
 
 //Code Here
 
+let boat1 = new Boat ("Four Winns", 13, 'Black', 567, "Lady of the Deep", 'Yacht', false)
+console.log(boat1)
+
+
+
 /*
   Call the checkSeaworthiness method on your new boat
 */
 
 //Code Here
+
+boat1.checkSeaworthiness ()
 
 /*
   Now run the performMaintenance method on your boat
@@ -463,8 +526,14 @@ const shippingInfo = {
 
 //Code Here 
 
+boat1.performMaintenance ()
+
 /*
   Check the seaworthiness once more (you should be ready for the water!)
 */
 
+
 //Code Here
+
+boat1.checkSeaworthiness ()
+console.log(boat1)
